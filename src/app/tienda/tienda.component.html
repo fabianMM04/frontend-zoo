@@ -1,0 +1,49 @@
+<h4>Utilizar jquery dentro de Angular</h4>
+<!--
+no es recomendable utilizar jquery con angular pero resulta interesante
+-->
+ <button id="botonjq">Mostrar texto</button>
+ <p id="textojq" class="alert alert-warning " >
+  or using a mix of both: if the same parameter name is specified in both sources, 
+  the kwargs value will have precedence over the dsn value. Note 
+  that either the dsn or at least one connection-related keyword argument is required.
+ </p>
+
+ <!--
+   OJO MIRAR JQUERY
+ <div id ="caja" style="border:1px solid black; width: 150px; height: 50px" >
+  or using a mix of both: if the same parameter name is specified in both sources, 
+  the kwargs value will have precedence over the dsn value. Note 
+  that either the dsn or at least one connection-related keyword argument is required.
+ </div>
+-->
+
+<hr>
+
+<h2>Padre</h2>
+
+<h1>{{titulo}}</h1>
+<li>camiseta rosa</li>
+<li>gorra negra</li>
+<hr>
+<h2>Hijo</h2>
+<h4>Nombre del parque</h4>
+<input type="text" [(ngModel)]="nombreDelPaque" (keyup)="mostrarNombre()" />
+<p>
+  resultado: {{nombreDelPaque}}
+
+</p>
+<div *ngIf="miParque">
+  <h4>Datos de miParque desde el hijo</h4>
+  <ol >
+    <li>{{miParque.nombre}}</li>
+    <li>{{miParque.metros}}</li>
+    <li>{{miParque.vegetacion}}</li>
+    <li>{{miParque.abierto}}</li>
+
+  </ol>
+</div>
+<hr>
+<p *ngIf="nombreDelPaque">
+  <app-parques [nombre]="nombreDelPaque" (pasameLosDatos)="VerDatosParques($event)"></app-parques>
+</p>
